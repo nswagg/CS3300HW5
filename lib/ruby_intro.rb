@@ -7,18 +7,31 @@ def sum arr
 end
 
 def max_2_sum arr
-  first=arr.max(2);
-  first[0]+first[1];
+  if arr.length == 0
+    return 0
+  elsif arr.length == 1
+    return arr[0]
+  else
+    first=arr.max(2);
+    first[0]+first[1];
+  end
 end
 
 def sum_to_n? arr, n
   if arr.length == 0 || arr.length ==1 # ie, can't sum two elements
     return false
   end
-  test = arr.permutations(2).to_arr
-  for i in test.length do
-    test[i][0] + test[i][1] == n ? return true : end
-
+  test = arr.permutation(2).to_a
+  puts test.inspect
+  return false
+  for i in 0..test.length do
+    x = test[i][0]
+    y = test[i][1]
+    if x+y == n
+      return true
+    end
+  end
+  puts "false. Exiting".inspect
   return false #if no two were found to sum to n
 end
 
