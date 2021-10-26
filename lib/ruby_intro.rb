@@ -21,6 +21,7 @@ def sum_to_n? arr, n
   if arr.length == 0 || arr.length ==1 # ie, can't sum two elements
     return false
   end
+  #still has an issue when there are not 2 nums to sum
   test = arr.permutation(2).to_a
   puts test.inspect
   return false
@@ -38,15 +39,28 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  test = s[0,1]
+  #Working with a String Regex
+  if !!test.match(/\A(?=[^aeiouAEIOU])(?=[a-zA-Z])/)
+    return true
+  end
+  return false
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s.size == 0 || s.match?(/[^01]/) #checks that all values are 1 or 0 or space
+    return false
+  end
+
+  if (s.to_i(2)).modulo(4) == 0
+    return true
+  end
+  return false
+
 end
 
 # Part 3
