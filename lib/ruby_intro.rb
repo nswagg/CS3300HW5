@@ -3,15 +3,23 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  first=arr.max(2);
+  first[0]+first[1];
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr.length == 0 || arr.length ==1 # ie, can't sum two elements
+    return false
+  end
+  test = arr.permutations(2).to_arr
+  for i in test.length do
+    test[i][0] + test[i][1] == n ? return true : end
+
+  return false #if no two were found to sum to n
 end
 
 # Part 2
