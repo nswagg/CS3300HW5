@@ -66,5 +66,23 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+
+  def initialize(isbn, price)
+    raise ArgumentError if isbn.size == 0 || price <=0
+    raise ArgumentError if isbn.class != String && price.class != Float
+    @isbn = isbn
+    @price = price
+  end
+
+  #Getters
+  attr_reader :isbn
+  attr_reader :price
+
+  #Setters
+  attr_writer :isbn
+  attr_writer :price
+  
+  def price_as_string
+    return "$%.2f" % @price.to_s
+  end
 end
