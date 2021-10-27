@@ -18,35 +18,33 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  if arr.length == 0 || arr.length ==1 # ie, can't sum two elements
+  if arr.length < 2
     return false
   end
-=begin
-  for i in 0..arr.length do 
-    j = i
-    for j in j..arr.length-1 do
-      if arr[i][j] == n
+  for i in 0..arr.length-1 do 
+    for j in i..arr.length-1 do
+      if i != j && arr[i] + arr[j] == n
         return true
       end
     end
   end
+  return false #if no two were found to sum to n
 
-  return false
-=end
 
-  #still has an issue when there are not 2 nums to sum
+=begin 
+#This was an attempt to make the function work with permutations
+#Needless to say, it did not work
   test = arr.permutation(2).to_a
   puts test.inspect
   return false
-  for i in 0..test.length do
+  for i in 0..test.length-1 do
     x = test[i][0]
     y = test[i][1]
     if x+y == n
       return true
     end
   end 
-  puts "false. Exiting".inspect
-  return false #if no two were found to sum to n
+=end
 end
 
 # Part 2
