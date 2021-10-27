@@ -21,6 +21,19 @@ def sum_to_n? arr, n
   if arr.length == 0 || arr.length ==1 # ie, can't sum two elements
     return false
   end
+=begin
+  for i in 0..arr.length do 
+    j = i
+    for j in j..arr.length-1 do
+      if arr[i][j] == n
+        return true
+      end
+    end
+  end
+
+  return false
+=end
+
   #still has an issue when there are not 2 nums to sum
   test = arr.permutation(2).to_a
   puts test.inspect
@@ -31,7 +44,7 @@ def sum_to_n? arr, n
     if x+y == n
       return true
     end
-  end
+  end 
   puts "false. Exiting".inspect
   return false #if no two were found to sum to n
 end
