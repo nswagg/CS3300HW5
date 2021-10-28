@@ -29,22 +29,6 @@ def sum_to_n? arr, n
     end
   end
   return false #if no two were found to sum to n
-
-
-=begin 
-#This was an attempt to make the function work with permutations
-#Needless to say, it did not work
-  test = arr.permutation(2).to_a
-  puts test.inspect
-  return false
-  for i in 0..test.length-1 do
-    x = test[i][0]
-    y = test[i][1]
-    if x+y == n
-      return true
-    end
-  end 
-=end
 end
 
 # Part 2
